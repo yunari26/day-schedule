@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/schedule', [ScheduleController::class, 'index'])->name('index');
+
+Route::get('/today', [ScheduleController::class, 'day'])->name('today');
+
+Route::get('/create', [ScheduleController::class, 'create'])->name('create');
+
+Route::get('/store', [ScheduleController::class, 'store'])->name('store');
+Route::post('/store', [ScheduleController::class, 'store'])->name('store');
